@@ -1,7 +1,4 @@
-# =============================================================================
 # EJERCICIO 06 - Estadisticas de temperatura
-# =============================================================================
-
 class GestorTemperatura:
     """Registra temperaturas en una lista y calcula estadisticas."""
 
@@ -38,30 +35,28 @@ class GestorTemperatura:
         return sum(self.temperaturas) / len(self.temperaturas)
 
 
-# --- Programa principal ---
+# Programa
 if __name__ == "__main__":
     gt = GestorTemperatura()
 
     gt.registrar_multiples(20, 25, 18, 30)
 
-    print("Temperaturas ->", gt.temperaturas)
-    print("Minima       ->", gt.minima())
-    print("Maxima       ->", gt.maxima())
-    print("Promedio     ->", gt.promedio())
+    print("Temperaturas: ", gt.temperaturas)
+    print("Minima: ", gt.minima())
+    print("Maxima: ", gt.maxima())
+    print("Promedio: ", gt.promedio())
 
 
-# =============================================================================
 # BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
 # self.temperaturas = []
 #
-# registrar_multiples(20, 25, 18, 30)   <- reutiliza registrar_temperatura
+# registrar_multiples(20, 25, 18, 30)   
 #   temp = 20 -> temperaturas = [20]
 #   temp = 25 -> temperaturas = [20, 25]
 #   temp = 18 -> temperaturas = [20, 25, 18]
 #   temp = 30 -> temperaturas = [20, 25, 18, 30]
 #
-# minima()   -> min([20, 25, 18, 30]) = 18
-# maxima()   -> max([20, 25, 18, 30]) = 30
-# promedio() -> suma = 20 + 25 + 18 + 30 = 93
-#               93 / 4 = 23.25
+# minima()    -> min([20, 25, 18, 30]) = 18
+# maxima()    -> max([20, 25, 18, 30]) = 30
+# promedio()  -> suma = 20 + 25 + 18 + 30 = 93
+#                93 / 4 = 23.25
