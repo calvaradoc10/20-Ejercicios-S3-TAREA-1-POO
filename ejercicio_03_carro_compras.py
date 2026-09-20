@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
 
 # BOSQUEJO A MANO paso a paso
-# self.carrito = {}        <- diccionario  nombre -> precio
+# self.carrito = {}        diccionario  nombre -> precio
 #
 # agregar_articulo("pan", 2.50)
 #   carrito["pan"] = 2.50    -> {"pan": 2.5}
@@ -50,11 +50,11 @@ if __name__ == "__main__":
 # total_carrito()
 #   total = 0
 #   recorro carrito.values()
-#     precio = 2.5  -> total = 0   + 2.5 = 2.5
-#     precio = 3.0  -> total = 2.5 + 3.0 = 5.5
+#     precio = 2.5  -> total = 0     +  2.5  = 2.5
+#     precio = 3.0  -> total = 2.5   +  3.0  = 5.5
 #   return 5.5
 #
 # articulos_por_rango(2.00, 2.90)
-#   ("pan", 2.5)   -> 2.00 <= 2.5 <= 2.90 ? SI -> ["pan"]
-#   ("leche", 3.0) -> 3.0 <= 2.90 ? NO         -> se descarta
+#   ("pan", 2.5)    -> 2.00 <= 2.5 <= 2.90 ?   SI      -> ["pan"]
+#   ("leche", 3.0)  -> 3.0  <= 2.90 ?          NO      -> se descarta
 #   return ["pan"]
