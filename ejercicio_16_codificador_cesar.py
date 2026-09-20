@@ -1,7 +1,4 @@
-# =============================================================================
 # EJERCICIO 16 - Codificador / Decodificador Cesar
-# =============================================================================
-
 class CodificadorCesar:
     """Cifrado Cesar: desplaza cada letra N posiciones en el alfabeto."""
 
@@ -35,20 +32,18 @@ class CodificadorCesar:
         return self.codificar_palabra(palabra, -desplazamiento)
 
 
-# --- Programa principal ---
+# Programa
 if __name__ == "__main__":
     cc = CodificadorCesar()
 
-    print("codificar_letra('h', 3)     ->", cc.codificar_letra("h", 3))
-    print("codificar_letra('z', 3)     ->", cc.codificar_letra("z", 3))
-    print("codificar_palabra('hola',3) ->", cc.codificar_palabra("hola", 3))
-    print("decodificar 'krod'          ->", cc.decodificar_palabra("krod", 3))
-    print("Historial                   ->", cc.historial)
+    print("Letra codificada: ", cc.codificar_letra("h", 3))
+    print("Letra codificada: ", cc.codificar_letra("z", 3))
+    print("Codificado de palabra: ", cc.codificar_palabra("hola", 3))
+    print("Decodificado de palabra: ", cc.decodificar_palabra("krod", 3))
+    print("Historial: ", cc.historial)
 
 
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
+# BOSQUEJO A MANO  paso a paso
 # codificar_letra(letra, 3) usa: (posicion + desplazamiento) % 26
 #
 # 'h' -> ord('h') = 104 -> 104-97 = 7  -> (7+3)  % 26 = 10 -> 10+97 = 107 -> 'k'
