@@ -1,7 +1,4 @@
-# =============================================================================
 # EJERCICIO 02 - Contador de palabras unicas
-# =============================================================================
-
 class AnalizadorTexto:
     """Guarda palabras en un conjunto (unicas) y en una lista (orden)."""
 
@@ -11,12 +8,12 @@ class AnalizadorTexto:
 
     def agregar_palabra(self, palabra):
         """Agrega una palabra al conjunto y a la lista."""
-        palabra = palabra.lower()     # normaliza: Hola == hola
-        self.unicas.add(palabra)      # add() es de conjuntos
-        self.orden.append(palabra)    # append() es de listas
+        palabra = palabra.lower()     # Minuscula: Hola --> hola
+        self.unicas.add(palabra)      # add() es para agregar en conjuntos
+        self.orden.append(palabra)    # append() es para agregar en listas
         return palabra
 
-    def agregar_multiples(self, *args):
+    def agregar_multiples(self, *args):    #tupla
         """Reutiliza agregar_palabra para varias palabras a la vez."""
         for palabra in args:
             self.agregar_palabra(palabra)
@@ -24,41 +21,38 @@ class AnalizadorTexto:
 
     def contar_palabras(self):
         """Retorna cuantas palabras DISTINTAS se han agregado."""
-        return len(self.unicas)
+        return len(self.unicas) # len cuenta cantidades
 
 
-# --- Programa principal ---
+# Programa 
 if __name__ == "__main__":
     at = AnalizadorTexto()
 
     at.agregar_multiples("hola", "mundo", "hola")
 
-    print("Lista con orden   ->", at.orden)
-    print("Conjunto de unicas->", at.unicas)
-    print("Palabras unicas   ->", at.contar_palabras())
+    print("Lista con orden: ", at.orden)
+    print("Conjunto de unicas: ", at.unicas)
+    print("Palabras unicas: ", at.contar_palabras())
 
 
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
-# self.unicas = set()      <- conjunto: NO admite repetidos
-# self.orden  = []         <- lista   : SI admite repetidos
+# BOSQUEJO A MANO paso a paso
+# self.unicas = set()       conjunto: no admite repetidos
+# self.orden  = []          lista   : si admite repetidos
 #
 # agregar_multiples("hola", "mundo", "hola")
 #   *args = ("hola", "mundo", "hola")
 #
-#   vuelta 1 -> palabra = "hola"
-#       unicas.add("hola")   -> {"hola"}
-#       orden.append("hola") -> ["hola"]
+#   vuelta 1 palabra = "hola"
+#       unicas.add("hola")         -> {"hola"}
+#       orden.append("hola")       -> ["hola"]
 #
-#   vuelta 2 -> palabra = "mundo"
-#       unicas.add("mundo")  -> {"hola", "mundo"}
-#       orden.append(...)    -> ["hola", "mundo"]
+#   vuelta 2 palabra = "mundo"
+#       unicas.add("mundo")        -> {"hola", "mundo"}
+#       orden.append("mundo")      -> ["hola", "mundo"]
 #
-#   vuelta 3 -> palabra = "hola"   <-- REPETIDA
-#       unicas.add("hola")   -> {"hola", "mundo"}  (el conjunto la ignora,
-#                                                   NO da error)
-#       orden.append("hola") -> ["hola", "mundo", "hola"]
+#   vuelta 3 palabra = "hola"    REPETIDA
+#       unicas.add("hola")         -> {"hola", "mundo"}  el conjunto la ignora, no da error                                                 
+#       orden.append("hola")       -> ["hola", "mundo", "hola"]
 #
 # contar_palabras()
 #   len(unicas) = 2
