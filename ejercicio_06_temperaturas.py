@@ -47,7 +47,7 @@ if __name__ == "__main__":
     print("Promedio: ", gt.promedio())
 
 
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
+# BOSQUEJO A MANO paso a paso
 # self.temperaturas = []
 #
 # registrar_multiples(20, 25, 18, 30)   
