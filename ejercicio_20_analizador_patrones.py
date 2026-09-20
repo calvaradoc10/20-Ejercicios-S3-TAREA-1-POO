@@ -1,7 +1,4 @@
-# =============================================================================
 # EJERCICIO 20 - Analizador de patrones en textos
-# =============================================================================
-
 class AnalizadorPatrones:
     """Analiza textos: filtra por patron, agrupa por longitud y saca unicas."""
 
@@ -32,21 +29,20 @@ class AnalizadorPatrones:
         return set(self.palabras)
 
 
-# --- Programa principal ---
+# Programa
 if __name__ == "__main__":
     ap = AnalizadorPatrones()
 
     texto = "el gato esta aqui"
 
-    print("agrupar_por_longitud ->", ap.agrupar_por_longitud(texto))
-    print("palabras con 'a'     ->", ap.encontrar_palabras(texto, "a"))
-    print("palabras unicas      ->", ap.palabras_unicas())
-    print("cuantas unicas       ->", len(ap.palabras_unicas()))
+    print("Agrupado por longitud: ", ap.agrupar_por_longitud(texto))
+    print("Palabras con A: ", ap.encontrar_palabras(texto, "a"))
+    print("palabras unicas: ", ap.palabras_unicas())
+    print("Cuantas unicas: ", len(ap.palabras_unicas()))
 
 
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
+# BOSQUEJO A MANO paso a paso
+# 
 # agrupar_por_longitud("el gato esta aqui")
 #   palabras = texto.split() -> ['el', 'gato', 'esta', 'aqui']
 #   grupos = {}
@@ -60,9 +56,9 @@ if __name__ == "__main__":
 #
 # encontrar_palabras(texto, "a")
 #   'el'   -> startswith("a") ? NO
-#   'gato' -> NO
-#   'esta' -> NO
-#   'aqui' -> SI -> ['aqui']
+#   'gato' ->                   NO
+#   'esta' ->                   NO
+#   'aqui' ->                   SI -> ['aqui']
 #
 # palabras_unicas()
 #   set(palabras) = {'el','gato','esta','aqui'} -> 4 palabras distintas
