@@ -1,9 +1,6 @@
-# =============================================================================
 # EJERCICIO 03 - Gestor de compras con totales
-# =============================================================================
-
 class CarroCompras:
-    """Carro de compras basado en un diccionario nombre -> precio."""
+    """Carro de compras basado en un diccionario nombre: precio."""
 
     def __init__(self):
         self.carrito = {}   # diccionario vacio
