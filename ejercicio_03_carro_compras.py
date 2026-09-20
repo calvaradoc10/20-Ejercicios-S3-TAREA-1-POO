@@ -20,27 +20,25 @@ class CarroCompras:
     def articulos_por_rango(self, precio_min, precio_max):
         """Retorna la lista de articulos cuyo precio esta dentro del rango."""
         encontrados = []
-        for nombre, precio in self.carrito.items():   # .items() = clave y valor
+        for nombre, precio in self.carrito.items():   # .items() = clave y valor, .keys() solo es clave
             if precio_min <= precio <= precio_max:
                 encontrados.append(nombre)
         return encontrados
 
 
-# --- Programa principal ---
+# Programa
 if __name__ == "__main__":
     c = CarroCompras()
 
     c.agregar_articulo("pan", 2.50)
     c.agregar_articulo("leche", 3.00)
 
-    print("Carrito              ->", c.carrito)
-    print("Total                ->", c.total_carrito())
-    print("Entre 2.00 y 2.90    ->", c.articulos_por_rango(2.00, 2.90))
+    print("Carrito: ", c.carrito)
+    print("Total: ", c.total_carrito())
+    print("Entre 2.00 y 2.90: ", c.articulos_por_rango(2.00, 2.90))
 
 
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
+# BOSQUEJO A MANO paso a paso
 # self.carrito = {}        <- diccionario  nombre -> precio
 #
 # agregar_articulo("pan", 2.50)
