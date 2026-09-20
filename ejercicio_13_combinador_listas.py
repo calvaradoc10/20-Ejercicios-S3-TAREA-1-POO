@@ -1,7 +1,4 @@
-# =============================================================================
 # EJERCICIO 13 - Combinador de listas
-# =============================================================================
-
 class CombinadorListas:
     """Intercala listas elemento por elemento."""
 
@@ -25,29 +22,27 @@ class CombinadorListas:
             return []
         acumulado = list(listas[0])
         for lista in listas[1:]:
-            acumulado = self.intercalar(acumulado, lista)   # REUTILIZACION
+            acumulado = self.intercalar(acumulado, lista)
         self.ultimo_resultado = acumulado
         return acumulado
 
 
-# --- Programa principal ---
+# Programa
 if __name__ == "__main__":
     cl = CombinadorListas()
 
-    print("intercalar([1,2],[3,4])  ->", cl.intercalar([1, 2], [3, 4]))
-    print("intercalar_multiples     ->", cl.intercalar_multiples([1, 2], [3, 4], [5, 6]))
-    print("listas de distinto largo ->", cl.intercalar([1, 2, 3, 4], [9]))
+    print("intercalar: ", cl.intercalar([1, 2], [3, 4]))
+    print("intercalar_multiples: ", cl.intercalar_multiples([1, 2], [3, 4], [5, 6]))
+    print("listas de distinto largo: ", cl.intercalar([1, 2, 3, 4], [9]))
 
 
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
+# BOSQUEJO A MANO paso a paso
 # intercalar([1,2], [3,4])
 #   resultado = []
 #   recorro i desde 0 hasta el largo de la lista mas larga (2)
 #
-#   i = 0 -> lista1 tiene indice 0 ? SI -> tomo 1 -> resultado = [1]
-#            lista2 tiene indice 0 ? SI -> tomo 3 -> resultado = [1, 3]
+#   i = 0 -> lista1 tiene indice 0  ?  SI -> tomo 1 -> resultado = [1]
+#            lista2 tiene indice 0  ?  SI -> tomo 3 -> resultado = [1, 3]
 #
 #   i = 1 -> lista1[1] = 2 -> resultado = [1, 3, 2]
 #            lista2[1] = 4 -> resultado = [1, 3, 2, 4]
