@@ -1,7 +1,4 @@
-# =============================================================================
 # EJERCICIO 15 - Divisores de un numero
-# =============================================================================
-
 class DivisorFinder:
     """Encuentra divisores y detecta numeros perfectos."""
 
@@ -14,11 +11,11 @@ class DivisorFinder:
         for i in range(1, numero + 1):
             if numero % i == 0:          # division exacta
                 divisores.append(i)
-        return tuple(divisores)          # lista -> tupla (inmutable)
+        return tuple(divisores)          # lista -> tupla 
 
     def es_perfecto(self, numero):
         """True si la suma de los divisores propios es igual al numero."""
-        divisores = self.encontrar_divisores(numero)   # REUTILIZACION
+        divisores = self.encontrar_divisores(numero)   
         propios = divisores[:-1]                       # todos menos el mismo
         return sum(propios) == numero
 
@@ -29,31 +26,29 @@ class DivisorFinder:
         return self.historial
 
 
-# --- Programa principal ---
+# Programa 
 if __name__ == "__main__":
     df = DivisorFinder()
 
-    print("encontrar_divisores(12) ->", df.encontrar_divisores(12))
-    print("es_perfecto(6)          ->", df.es_perfecto(6))
-    print("es_perfecto(12)         ->", df.es_perfecto(12))
-    print("multiples (6, 12)       ->", df.encontrar_multiples_divisores(6, 12))
+    print("encontrar_divisores: ", df.encontrar_divisores(12))
+    print("es_perfecto: ", df.es_perfecto(6))
+    print("es_perfecto: ", df.es_perfecto(12))
+    print("multiples divisores: ", df.encontrar_multiples_divisores(6, 12))
 
 
-# =============================================================================
 # BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
 # encontrar_divisores(12)
 #   divisores = []
 #   pruebo i de 1 hasta 12
 #
-#   i =  1 -> 12 % 1  = 0 -> SI  -> [1]
-#   i =  2 -> 12 % 2  = 0 -> SI  -> [1, 2]
-#   i =  3 -> 12 % 3  = 0 -> SI  -> [1, 2, 3]
-#   i =  4 -> 12 % 4  = 0 -> SI  -> [1, 2, 3, 4]
-#   i =  5 -> 12 % 5  = 2 -> NO
-#   i =  6 -> 12 % 6  = 0 -> SI  -> [1, 2, 3, 4, 6]
-#   i =  7..11 -> ninguno divide exacto
-#   i = 12 -> 12 % 12 = 0 -> SI  -> [1, 2, 3, 4, 6, 12]
+#   i =   1 -> 12 % 1 = 0 ->   SI  -> [1]
+#   i =   2 -> 12 % 2 = 0 ->   SI  -> [1, 2]
+#   i =   3 -> 12 % 3 = 0 ->   SI  -> [1, 2, 3]
+#   i =   4 -> 12 % 4 = 0 ->   SI  -> [1, 2, 3, 4]
+#   i =   5 -> 12 % 5 = 2 ->   NO
+#   i =   6 -> 12 % 6 = 0 ->   SI  -> [1, 2, 3, 4, 6]
+#   i =   7..11 -> ninguno divide exacto
+#   i = 12 -> 12 % 12 = 0 ->   SI  -> [1, 2, 3, 4, 6, 12]
 #
 #   return (1, 2, 3, 4, 6, 12)    <- convertido a TUPLA
 #
@@ -64,4 +59,4 @@ if __name__ == "__main__":
 #
 # es_perfecto(12)
 #   divisores = (1,2,3,4,6,12) -> 1+2+3+4+6 = 16
-#   16 == 12 ? NO -> False
+#   16 == 12 ?     NO   -> False
