@@ -1,6 +1,4 @@
-# =============================================================================
 # EJERCICIO 17 - Grupo de edades
-# =============================================================================
 
 class AgrupadorEdades:
     """Clasifica edades por categoria y las agrupa en un diccionario."""
@@ -22,8 +20,8 @@ class AgrupadorEdades:
     def agrupar_por_categoria(self, *edades):
         """Agrupa todas las edades recibidas en un diccionario de listas."""
         for edad in edades:
-            categoria = self.clasificar_edad(edad)      # REUTILIZACION
-            if categoria not in self.grupos:            # linea clave
+            categoria = self.clasificar_edad(edad)      
+            if categoria not in self.grupos:            
                 self.grupos[categoria] = []
             self.grupos[categoria].append(edad)
         return self.grupos
@@ -36,20 +34,17 @@ class AgrupadorEdades:
         return sum(lista) / len(lista)
 
 
-# --- Programa principal ---
+# Programa
 if __name__ == "__main__":
     ae = AgrupadorEdades()
 
-    print("clasificar_edad(15)      ->", ae.clasificar_edad(15))
-    print("agrupar(5, 15, 30, 70)   ->", ae.agrupar_por_categoria(5, 15, 30, 70))
-    print("promedio de 'nino'       ->", ae.edad_promedio_categoria("nino"))
+    print("Clasificar edad: ", ae.clasificar_edad(15))
+    print("Agrupado: ", ae.agrupar_por_categoria(5, 15, 30, 70))
+    print("Promedio de: ", ae.edad_promedio_categoria("nino"))
 
-
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
+# BOSQUEJO A MANO paso a paso
 # clasificar_edad usa estos rangos:
-#    0 a 11  -> "nino"          12 a 17 -> "adolescente"
+#    0 a 11  -> "nino"          12 a 17  -> "adolescente"
 #   18 a 64  -> "adulto"        65 o mas -> "mayor"
 #
 # agrupar_por_categoria(5, 15, 30, 70)
@@ -64,4 +59,4 @@ if __name__ == "__main__":
 #   edad = 70 -> "mayor"       -> grupos = {..., "mayor":[70]}
 #
 # edad_promedio_categoria("nino")
-#   lista [5] -> 5 / 1 = 5.0
+#   lista [5] ->   5 / 1  = 5.0
