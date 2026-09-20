@@ -1,7 +1,4 @@
-# =============================================================================
 # EJERCICIO 10 - Gestor de tareas con prioridad
-# =============================================================================
-
 class Tareas:
     """Gestor de tareas guardadas como lista de tuplas."""
 
@@ -25,28 +22,26 @@ class Tareas:
         """Elimina una tarea por su descripcion."""
         pendientes = []
         for tarea in self.tareas:
-            if tarea[0] != descripcion:     # conservo las que NO coinciden
+            if tarea[0] != descripcion:     # conserva las que no coinciden
                 pendientes.append(tarea)
         self.tareas = pendientes
         return self.tareas
 
 
-# --- Programa principal ---
+# Programa
 if __name__ == "__main__":
     t = Tareas()
 
     t.agregar_tarea("Estudiar", "alta")
     t.agregar_tarea("Leer", "baja")
 
-    print("Todas las tareas   ->", t.tareas)
-    print("Solo prioritarias  ->", t.tareas_prioritarias())
-    print("Tras borrar 'Leer' ->", t.eliminar_completada("Leer"))
+    print("Todas las tareas: ", t.tareas)
+    print("Tareas prioritarias: ", t.tareas_prioritarias())
+    print("Tras borrar 'Leer': ", t.eliminar_completada("Leer"))
 
 
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
-# self.tareas = []         <- lista de TUPLAS (descripcion, prioridad)
+# BOSQUEJO A MANO paso a paso
+# self.tareas = []         lista de TUPLAS (descripcion, prioridad)
 #
 # agregar_tarea("Estudiar", "alta")
 #   tareas = [("Estudiar", "alta")]
@@ -55,12 +50,12 @@ if __name__ == "__main__":
 #   tareas = [("Estudiar","alta"), ("Leer","baja")]
 #
 # tareas_prioritarias()
-#   ("Estudiar","alta") -> prioridad == "alta" ? SI -> [("Estudiar","alta")]
-#   ("Leer","baja")     -> "baja" == "alta" ? NO    -> no entra
+#   ("Estudiar","alta")   prioridad == "alta" ?    SI  ->  [("Estudiar","alta")]
+#   ("Leer","baja")       "baja" == "alta"    ?    NO  ->  no entra
 #   return [("Estudiar","alta")]
 #
 # eliminar_completada("Leer")
-#   recorro y me quedo con las que NO se llaman "Leer"
-#   ("Estudiar","alta") -> se conserva
-#   ("Leer","baja")     -> se elimina
+#   recorro y me quedo con las que no se llaman "Leer"
+#   ("Estudiar","alta")    se conserva
+#   ("Leer","baja")        se elimina
 #   tareas = [("Estudiar","alta")]
