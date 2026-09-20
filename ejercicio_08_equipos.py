@@ -1,7 +1,4 @@
-# =============================================================================
 # EJERCICIO 08 - Asignador de equipos
-# =============================================================================
-
 class Equipos:
     """Diccionario de listas: cada equipo guarda su lista de jugadores."""
 
@@ -16,7 +13,7 @@ class Equipos:
 
     def agregar_jugador(self, equipo, jugador):
         """Agrega un jugador a la lista del equipo indicado."""
-        if equipo not in self.equipos:      # si no existe, lo creo primero
+        if equipo not in self.equipos:      # si no existe, lo creo
             self.crear_equipo(equipo)
         self.equipos[equipo].append(jugador)
         return self.equipos[equipo]
@@ -32,7 +29,7 @@ class Equipos:
         return mayor
 
 
-# --- Programa principal ---
+# Programa principal
 if __name__ == "__main__":
     eq = Equipos()
 
@@ -42,14 +39,11 @@ if __name__ == "__main__":
     eq.crear_equipo("B")
     eq.agregar_jugador("B", "Luis")
 
-    print("Equipos                  ->", eq.equipos)
-    print("Equipo con mas jugadores ->", eq.equipo_mayor_integrantes())
+    print("Equipos: ", eq.equipos)
+    print("Equipo con mas jugadores: ", eq.equipo_mayor_integrantes())
 
-
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
-# self.equipos = {}        <- diccionario  equipo -> LISTA de jugadores
+# BOSQUEJO A MANO paso a paso
+# self.equipos = {}        diccionario  equipo -> LISTA de jugadores
 #
 # crear_equipo("A")             -> {"A": []}
 # agregar_jugador("A", "Juan")  -> {"A": ["Juan"]}
@@ -60,7 +54,7 @@ if __name__ == "__main__":
 # equipo_mayor_integrantes()
 #   mayor = ""   maximo = 0
 #
-#   "A" -> len(["Juan","Pedro"]) = 2 -> 2 > 0 ? SI -> mayor = "A", maximo = 2
-#   "B" -> len(["Luis"]) = 1         -> 1 > 2 ? NO -> no cambia
+#   "A" len(["Juan","Pedro"]) = 2  ->  2 > 0 ?   SI -> mayor = "A", maximo = 2
+#   "B" len(["Luis"])         = 1  ->  1 > 2 ?   NO -> no cambia
 #
 #   return "A"
