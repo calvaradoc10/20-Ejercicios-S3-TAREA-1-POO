@@ -1,7 +1,4 @@
-# =============================================================================
 # EJERCICIO 05 - Detector de numeros pares e impares
-# =============================================================================
-
 class AnalizadorNumeros:
     """Clasifica numeros en pares e impares usando el operador modulo."""
 
@@ -27,29 +24,28 @@ class AnalizadorNumeros:
                 len(self.clasificacion["impares"]))
 
 
-# --- Programa principal ---
+# Programa principal 
 if __name__ == "__main__":
     an = AnalizadorNumeros()
 
-    print("separar(1,2,3,4,5)        ->", an.separar(1, 2, 3, 4, 5))
-    print("cantidad_pares_impares()  ->", an.cantidad_pares_impares())
+    print("Separa: ", an.separar(1, 2, 3, 4, 5))
+    print("Cantidad de pares e impares", an.cantidad_pares_impares())
 
 
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
+# BOSQUEJO A MANO paso a paso
 # separar(1, 2, 3, 4, 5)
-#   resultado = {"pares": [], "impares": []}   <- las dos claves YA creadas
+#   resultado = {"pares": [], "impares": []}  
 #   *numeros = (1, 2, 3, 4, 5)
 #
-#   n = 1 -> es_par(1): 1 % 2 = 1 -> False -> impares = [1]
-#   n = 2 -> es_par(2): 2 % 2 = 0 -> True  -> pares   = [2]
-#   n = 3 -> 3 % 2 = 1 -> False            -> impares = [1, 3]
-#   n = 4 -> 4 % 2 = 0 -> True             -> pares   = [2, 4]
-#   n = 5 -> 5 % 2 = 1 -> False            -> impares = [1, 3, 5]
+#   es_par():
+#   n = 1 -> 1 % 2 = 1 ->  False  -> impares = [1]
+#   n = 2 -> 2 % 2 = 0 ->  True   -> pares   = [2]
+#   n = 3 -> 3 % 2 = 1 ->  False  -> impares = [1, 3]
+#   n = 4 -> 4 % 2 = 0 ->  True   -> pares   = [2, 4]
+#   n = 5 -> 5 % 2 = 1 ->  False  -> impares = [1, 3, 5]
 #
 #   return {"pares": [2, 4], "impares": [1, 3, 5]}
 #
 # cantidad_pares_impares()
 #   len(pares) = 2 ; len(impares) = 3
-#   return (2, 3)      <- TUPLA, no lista
+#   return (2, 3)
