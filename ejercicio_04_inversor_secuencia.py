@@ -1,12 +1,9 @@
-# =============================================================================
 # EJERCICIO 04 - Inversor de secuencias
-# =============================================================================
-
 class InversorSecuencia:
     """Invierte listas manualmente, sin reversed() ni [::-1]."""
 
     def __init__(self):
-        self.invertidas = {}   # historial de inversiones
+        self.invertidas = {}   # diccionario que servira como historial de inversiones
 
     def invertir_lista(self, lista):
         """Retorna una lista nueva con los elementos al reves."""
@@ -19,25 +16,23 @@ class InversorSecuencia:
     def invertir_multiples(self, *listas):
         """Invierte varias listas y las guarda en un diccionario."""
         for lista in listas:
-            clave = tuple(lista)                    # la clave debe ser inmutable
+            clave = tuple(lista)            # la clave debe ser inmutable
             self.invertidas[clave] = self.invertir_lista(lista)
         return self.invertidas
 
 
-# --- Programa principal ---
+# Programa
 if __name__ == "__main__":
     inv = InversorSecuencia()
+    
+    print("Lista invertida: ", inv.invertir_lista([1, 2, 3]))
+    print("invertir_multiples: ", inv.invertir_multiples([1, 2], [3, 4]))
 
-    print("invertir_lista([1,2,3]) ->", inv.invertir_lista([1, 2, 3]))
-    print("invertir_multiples      ->", inv.invertir_multiples([1, 2], [3, 4]))
 
-
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
+# BOSQUEJO A MANO paso a paso
 # invertir_lista([1, 2, 3])
 #   resultado = []
-#   recorro los indices hacia atras: range(2, -1, -1) -> 2, 1, 0
+#   recorro los indices hacia atras:  range(2, -1, -1)  ->  2, 1, 0
 #
 #   i = 2 -> lista[2] = 3 -> resultado = [3]
 #   i = 1 -> lista[1] = 2 -> resultado = [3, 2]
@@ -48,7 +43,7 @@ if __name__ == "__main__":
 #   *listas = ([1,2], [3,4])
 #   diccionario = {}
 #
-#   lista [1,2] -> la clave NO puede ser una lista (no es hashable)
+#   lista [1,2] -> la clave no puede ser una lista
 #                  clave = tuple([1,2]) = (1, 2)
 #                  valor = invertir_lista([1,2]) = [2, 1]
 #                  -> {(1,2): [2,1]}
