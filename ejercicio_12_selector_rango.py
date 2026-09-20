@@ -24,8 +24,8 @@ class SelectorRango:
 if __name__ == "__main__":
     sr = SelectorRango()
 
-    print("crear_rango(1, 3): ", sr.crear_rango(1, 3))
-    print("rangos (1,3)+(2,4): ", sr.elementos_en_multiples_rangos((1, 3), (2, 4)))
+    print("crear_rango: ", sr.crear_rango(1, 3))
+    print("rangos: ", sr.elementos_en_multiples_rangos((1, 3), (2, 4)))
 
 # BOSQUEJO A MANO - asi se ejecuta paso a paso
 # crear_rango(1, 3)
