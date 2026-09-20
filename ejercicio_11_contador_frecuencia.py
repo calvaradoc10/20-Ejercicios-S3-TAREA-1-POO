@@ -1,7 +1,4 @@
-# =============================================================================
 # EJERCICIO 11 - Contador de frecuencia
-# =============================================================================
-
 class ContadorFrecuencia:
     """Cuenta cuantas veces aparece cada elemento usando un diccionario."""
 
@@ -37,7 +34,7 @@ class ContadorFrecuencia:
         return self.frecuencias.get(elemento, 0)
 
 
-# --- Programa principal ---
+# Programa
 if __name__ == "__main__":
     cf = ContadorFrecuencia()
 
@@ -45,31 +42,29 @@ if __name__ == "__main__":
     cf.agregar_elemento("b")
     cf.agregar_elemento("a")
 
-    print("Frecuencias           ->", cf.frecuencias)
-    print("Mas frecuente         ->", cf.elemento_mas_frecuente())
-    print("frecuencia_elemento(b)->", cf.frecuencia_elemento("b"))
-    print("frecuencia_elemento(z)->", cf.frecuencia_elemento("z"))
+    print("Frecuencias: ", cf.frecuencias)
+    print("Mas frecuente: ", cf.elemento_mas_frecuente())
+    print("frecuencia_elemento(b): ", cf.frecuencia_elemento("b"))
+    print("frecuencia_elemento(z): ", cf.frecuencia_elemento("z"))
 
 
-# =============================================================================
-# BOSQUEJO A MANO - asi se ejecuta paso a paso
-# =============================================================================
-# self.frecuencias = {}    <- diccionario  elemento -> cuantas veces
+# BOSQUEJO A MANO paso a paso
+# self.frecuencias = {}    diccionario  elemento -> cuantas veces
 #
 # agregar_elemento("a")
-#   "a" no esta en el diccionario -> frecuencias["a"] = 1   -> {"a": 1}
+#   "a" no esta en el diccionario -> frecuencias["a"] = 1     ->  {"a": 1}
 #
 # agregar_elemento("b")
-#   "b" no esta -> frecuencias["b"] = 1                     -> {"a":1, "b":1}
+#   "b" no esta -> frecuencias["b"] = 1                       ->  {"a":1, "b":1}
 #
 # agregar_elemento("a")
-#   "a" SI esta -> frecuencias["a"] = 1 + 1 = 2             -> {"a":2, "b":1}
+#   "a" si esta -> frecuencias["a"] = 1 + 1 = 2               ->  {"a":2, "b":1}
 #
 # elemento_mas_frecuente()
 #   mejor = None   maximo = 0
-#   ("a", 2) -> 2 > 0 ? SI -> mejor = "a", maximo = 2
-#   ("b", 1) -> 1 > 2 ? NO -> no cambia
+#   ("a", 2)  2 > 0   ?    SI   -> mejor = "a", maximo = 2
+#   ("b", 1)  1 > 2   ?    NO   -> no cambia
 #   return "a"
 #
 # frecuencia_elemento("b") -> 1
-# frecuencia_elemento("z") -> no existe -> con .get("z", 0) retorna 0
+# frecuencia_elemento("z") -> no existe con .get("z", 0) retorna 0
